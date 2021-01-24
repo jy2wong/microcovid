@@ -30,12 +30,11 @@
     margin-bottom: 20px;
     @include font-size(1.2rem);
   }
-  header#location {
+  header.header-active {
     background: $primary;
   }
-
-  header#activity-risk {
-    background: $indigo;
+  header.header-inactive {
+    background: $secondary;
   }
 
   /* Chrome, Safari, Edge, Opera */

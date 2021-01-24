@@ -105,7 +105,7 @@
       "positive_case_percentage": "Percent of tests that come back positive",
       "data_last_updated": "Data last updated"
     },
-    "location_selector_header": "Step 1: Enter your location",
+    "location_selector_header": "Location",
     "location_subprompt": {
       "country_or_regions": "Entire country, or select region...",
       "US-LA": "Entire state, or select parish...",
@@ -145,7 +145,7 @@
       "whats_this": "We’ve constructed a calculator that lets you estimate the risk of getting COVID from an activity or relationship in your daily life, using the <1>best research available</1>. We hope this tool will help hone your intuition, lower your stress levels, and figure out good harm-reduction strategies.</p><p>The first step in protecting your family and community is to avoid getting COVID yourself.",
       "call_to_action": "Calculate the approximate COVID risk of an activity or relationship"
     },
-    "risk_step_label": "Step 2: Describe the activity or relationship",
+    "risk_step_label": "Activity/Relationship",
     "type_of_interaction": "Is this a specific activity or an ongoing relationship?",
     "risk_group_empty_warning": "First, enter your location",
     "warning": {

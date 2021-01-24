@@ -1,5 +1,5 @@
 import { isNumber } from 'lodash'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Card, Form, InputGroup } from 'react-bootstrap'
 import { Typeahead } from 'react-bootstrap-typeahead'
 import { Trans, useTranslation } from 'react-i18next'
@@ -192,6 +192,7 @@ export const PrevalenceControls: React.FunctionComponent<{
     }
   }
 
+  const subLocationRef = useRef<Typeahead<Option>>(null)
   const showSubLocation =
     isTopLocation(data.topLocation) &&
     Locations[data.topLocation].subdivisions.length > 1
@@ -227,9 +228,6 @@ export const PrevalenceControls: React.FunctionComponent<{
 
   return (
     <React.Fragment>
-      <header id="location">
-        <Trans>calculator.location_selector_header</Trans>
-      </header>
       <div className="form-group" hidden={isManualEntryCurrently}>
         <ControlLabel
           id="top-location-typeahead"
@@ -245,6 +243,10 @@ export const PrevalenceControls: React.FunctionComponent<{
               return
             }
             setLocationData(e[0].value, '')
+            if (subLocationRef && subLocationRef.current !== null) {
+              const inputRef = subLocationRef.current.getInput()
+              inputRef.focus()
+            }
           }}
           options={topLocationOptions}
           placeholder={t('calculator.select_location_placeholder')}
@@ -272,6 +274,7 @@ export const PrevalenceControls: React.FunctionComponent<{
             }}
             options={subLocationOptions}
             placeholder={t(`calculator.location_subprompt.${subPromptType}`)}
+            ref={subLocationRef}
             selected={
               selectedSubLocation === undefined ? [] : [selectedSubLocation]
             }
@@ -281,7 +284,7 @@ export const PrevalenceControls: React.FunctionComponent<{
       {isManualEntryCurrently ? (
         <button
           id="switchBetweenManualDataAndLocationSelection"
-          className="btn btn-secondary"
+          className="btn btn-gray"
           onClick={handleSelectLocationButtonOnClick}
         >
           {t('calculator.switch_button.select_location')}
@@ -289,7 +292,7 @@ export const PrevalenceControls: React.FunctionComponent<{
       ) : (
         <button
           id="switchBetweenManualDataAndLocationSelection"
-          className="btn btn-secondary"
+          className="btn btn-gray"
           onClick={handleEnterDataButtonOnClick}
         >
           {t('calculator.switch_button.enter_data_manually')}

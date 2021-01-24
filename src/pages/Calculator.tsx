@@ -176,6 +176,9 @@ export const Calculator = (): React.ReactElement => {
       <Row id="calculator-fields">
         <Col md="12" lg="4">
           <Card id="location">
+            <header id="location" className="header-inactive">
+              <Trans>calculator.location_selector_header</Trans>
+            </header>
             <PrevalenceControls
               data={calculatorData}
               setter={setCalculatorData}
@@ -187,7 +190,7 @@ export const Calculator = (): React.ReactElement => {
           <Card id="person-risk">
             {prevalenceIsFilled ? (
               <React.Fragment>
-                <header id="activity-risk">
+                <header id="activity-risk" className="header-active">
                   <Trans>calculator.risk_step_label</Trans>
                 </header>
                 <Row>

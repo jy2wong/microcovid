@@ -60,6 +60,11 @@ $warning-fill: #fbdfb1 !default;
 $danger: $red !default;
 $light: $gray-200 !default;
 $dark: $gray-700 !default;
+$gray: $gray-500 !default;
+
+$theme-colors: (
+  gray: $gray-500
+);
 
 $yiq-contrasted-threshold: 175 !default;
 
